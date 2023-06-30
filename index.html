@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Girls in IT @ Progressive</title>
+    <style>
+      button {
+        font-size: 2rem;
+        padding: 2rem;
+        border-radius: 2rem;
+        border: none;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Welcome to Beginner Javascript!</h1>
+    <button>click me</button>
+  </body>
+  <script>
+    const button = document.querySelector("button");
+    let colors = [
+      "crimson",
+      "darkorange",
+      "gold",
+      "limegreen",
+      "dodgerblue",
+      "rebeccapurple",
+    ];
+    let colorIndex = 0;
+
+    function changeColor(color) {
+      if (!color || typeof color !== "string") {
+        const index = colorIndex % colors.length;
+        colorIndex += 1;
+        color = colors[index];
+      }
+      button.style.backgroundColor = color;
+    }
+
+    button.addEventListener("click", changeColor);
+  </script>
+</html>
+
+<!-- https://www.w3schools.com/colors/colors_names.asp -->
