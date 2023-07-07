@@ -3,43 +3,56 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Girls in IT @ Progressive</title>
-    <style>
-      button {
-        font-size: 2rem;
-        padding: 2rem;
-        border-radius: 2rem;
-        border: none;
-      }
-    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@0,400;0,700;1,400&display=swap"
+      rel="stylesheet" />
+    <link rel="stylesheet" href="./styles.css" />
+    <title>Girls in IT - Intro to JavaScript</title>
   </head>
   <body>
-    <h1>Welcome to Beginner Javascript!</h1>
-    <button>click me</button>
+    <h1>Learn JavaScript</h1>
+    <div class="card">
+      <div id="intro">
+        <h2>Introduction</h2>
+        <p>
+          JavaScript is a programming language used in web browsers, like Chrome
+          and Firefox. It's a way to provide the browser with some instructions
+          to follow - like changing the color of a button every time we click
+          it. Almost every website uses at least a little bit of JavaScript, and
+          all of the "blocks" you used in yesterday's exercises used JavaScript.
+        </p>
+        <p>Try clicking the button, and see what happens.</p>
+        <!-- <pre>
+      <code>
+        &lt;script&gt;
+          let name = 'world';
+          console.log(`hello ${name}`)
+        &lt;/script&gt;
+      </code>
+    </pre> -->
+        <button id="colors">click me!</button>
+        <p>
+          Now right-click on the button and choose "inspect" - and notice how we
+          can see the HTML code for our button now. Try clicking the button
+          again. Pay attention to how the background-color style in the HTML
+          changes - that's JavaScript doing that!
+        </p>
+        <p>
+          Let's learn a little about how JavaScript works to change our button
+          color.
+        </p>
+      </div>
+      <div class="hidden" id="vars">
+        <h2>Variables & Equations</h2>
+      </div>
+      <button class="hidden" id="prev">Go Back</button>
+      <button id="continue">Continue</button>
+    </div>
   </body>
-  <script>
-    const button = document.querySelector("button");
-    let colors = [
-      "crimson",
-      "darkorange",
-      "gold",
-      "limegreen",
-      "dodgerblue",
-      "rebeccapurple",
-    ];
-    let colorIndex = 0;
-
-    function changeColor(color) {
-      if (!color || typeof color !== "string") {
-        const index = colorIndex % colors.length;
-        colorIndex += 1;
-        color = colors[index];
-      }
-      button.style.backgroundColor = color;
-    }
-
-    button.addEventListener("click", changeColor);
-  </script>
+  <script src="./helpers.js"></script>
+  <script src="./main.js"></script>
 </html>
 
 <!-- https://www.w3schools.com/colors/colors_names.asp -->
