@@ -1,10 +1,12 @@
-let currentSection = "intro";
-const introSection = document.querySelector("#intro");
-const varsSection = document.querySelector("#vars");
+const sections = [
+  { name: "intro", prev: null, next: "vars" },
+  { name: "vars", prev: "intro", next: null },
+];
 
 const button = document.querySelector("button#colors");
 const continueBtn = document.querySelector("button#continue");
 const goBackBtn = document.querySelector("button#prev");
+
 let colors = [
   "crimson",
   "darkorange",
@@ -14,7 +16,26 @@ let colors = [
   "rebeccapurple",
 ];
 let colorIndex = 0;
-let stop = false;
+
+function updateSection(sectionName) {
+  document.cookie = `currentSection=${sectionName}`;
+
+  sections.forEach((section) => {
+    const sectionDiv = document.querySelector(`#${section.name}`);
+
+    if (section.name === sectionName) {
+      sectionDiv.classList.remove("hidden");
+      section.prev
+        ? goBackBtn.classList.remove("hidden")
+        : goBackBtn.classList.add("hidden");
+      section.next
+        ? continueBtn.classList.remove("hidden")
+        : continueBtn.classList.add("hidden");
+    } else {
+      sectionDiv.classList.add("hidden");
+    }
+  });
+}
 
 function changeColor(color) {
   if (!color || typeof color !== "string") {
@@ -26,27 +47,21 @@ function changeColor(color) {
 }
 
 function handleContinue() {
-  switch (currentSection) {
-    case "intro":
-      introSection.classList.add("hidden");
-      varsSection.classList.remove("hidden");
-      goBackBtn.classList.remove("hidden");
-      currentSection = "vars";
-      break;
-  }
+  nextSection = sections.find(
+    (s) => s.name === getCookies().currentSection
+  ).next;
+  updateSection(nextSection);
 }
 
 function handleBack() {
-  switch (currentSection) {
-    case "vars":
-      introSection.classList.remove("hidden");
-      varsSection.classList.add("hidden");
-      goBackBtn.classList.add("hidden");
-      currentSection = "intro";
-      break;
-  }
+  prevSection = sections.find(
+    (s) => s.name === getCookies().currentSection
+  ).prev;
+  updateSection(prevSection);
 }
 
 button.addEventListener("click", changeColor);
 continueBtn.addEventListener("click", handleContinue);
 goBackBtn.addEventListener("click", handleBack);
+
+updateSection(getCookies().currentSection || "intro");
