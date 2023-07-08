@@ -1,0 +1,167 @@
+Alert and console.log
+A couple useful instructions for the browser are alert() and console.log().  Alert will display a little pop-up message, and console.log will log some text to your console in the dev tools.
+
+Let's try it out, type "alert("hello world!")" and hit enter
+Now let's log the same text to the console: "console.log("hello world!")"
+
+Any time we want to use text, or "strings" in javascript, we need to use either single or double quotes around the text, so javascript knows how to read it.
+
+Try it w/o the quotation marks, show error
+
+Variables - lets javascript store a value so we can use it later in our instructions
+To create a variable, we type "let" and then give our variable a name, and then use the equal sign to tell javascript what our new variables value is:
+
+Let name = "Jamie" <hit enter>
+Now javascript knows about our name variable, and we can type "name" and hit enter to ask javascript to tell us what the value is
+
+Now we can include our name value in OTHER variables by using back-ticks instead of quotes:
+Let greeting = `hi, ${name}!` <-- when we want to include one variable inside the back-ticks, we put it inside of a $ and curly braces, like this
+
+Now we can alert or console.log greeting, and see hi and our name.  
+
+---------
+
+Now that we know how to create a string variable, let's try something a little harder.  Sometimes in JavaScript we need a list of values, and we call that an "array".  In JS we can create an array by  putting square brackets around all the values we want in our list, for example, here is an array of my favorite animals:
+
+Let animals = ["dog", "cat", "blue jay"]
+
+Now if I type "animals" and hit enter, javascript will show me my array with all my values in it
+
+I can also ask javascript how long my list is - animals.length
+-------------
+Takes about 10 min up to this point
+
+------------
+
+Is for each too much?
+
+Now that we have a list, we might want to loop through all the values inside and log them out to the console.  The easiest way to do this is using a "forEach" loop:
+
+Animals.forEach(animal => console.log(animal))
+
+-------------
+
+Functions
+Our next really important concept in javascript is functions.  Functions are one or more instructions in javascript grouped together so that we can call those instructions more than once. Let's create a simple function together in the console.
+
+We'll call our function "sayHi", and to define our function, we type "function" at the beginning, and then our function name like this:
+function sayHi() { console.log("hello world!")}
+
+Now if we type "sayHi" and hit enter, javascript shows us exactly what instructions our function will run. If we want javascript to actually run them, we have to type sayHi() with the parenthases, this tells javascript to actually run our instructions for us, and we can do that as many times as we want.
+
+Functions are super useful because we can also send data inside the function, by putting it in between the parenthases - let's rewrite our sayHi function:
+Function sayHi(name) { console.log(`hi, ${name}`) }
+
+Now we can "call" the function with any name we want inside the parenthases, and javascript will print out hi, and the name (try a few)
+
+If we forget to put some text inside the parenthases, javascript prints out hi, undefined - and what undefined means it that javascript doesn't know the value of "name", because we forgot to give it a value. Any time you see undefined in the console, it probably means javascript was looking for a variable that doesn't have a value yet.
+
+Now we can put together our variables and our function - pass the name variable into our function
+
+Now change the name variable and pass ita gain - and you'll see what gets logged to the console is different
+
+--------------------- ~6 minutes
+
+Now let's try writing some javascript instructions that can actually change our website here.  First, try clicking on the big "click me" button, and see what happens
+
+You SHOULD see the colors change, like a rainbow - is anyone having trouble seeing that happen, if yes, try hitting F5 or refresh your website to see if that fixes it.
+
+What's happening here, is I wrote some javascript instructions to find the button on the web page, and tell it to run a function call changeColor every time we click the button.
+
+The cool thing about being able to run javascript instructions inside our dev tools console is that we can ALSO type the function into the console and run it ourselves and see the color change.  So let's try that now, come over to our console, and type "changeColor()" and remember to put the parenthases in, then hit enter - and the color should change!
+
+If you want to run it again easily - we can actually hit the up-arrow - that will bring back the very last instruction that we entered, so we don't need to type it again, so let's try running changeColor() a bunch of times :)
+
+Remember we talked about arrays earlier? They are like lists of values in javascript? Try typing colors and hit enter - you should see a list of colors - these are the colors that our website is using to change the color of the button every time our function instructions run.
+
+These color names may look kind of weird, there are 140 pre-set color names that we can use, check out this website to see all the different color choices.
+
+Now let's try changing which colors our button loops through - remember how to define a list of values using an array - we want to use our square brackets on the outside, and put commas between all our values.  The variable name we want to redefine is colors, so we can say
+colors = [ "cyan", "darkmagenta",  "forestgreen",  "mediumpurple" ]
+
+This function is really neat, because I wrote it to take a color value in the parenthases, and if we give it one - it won't use the colors in our array anymore, it'll change our button to the exact color we tell it to :) so try that out a few times, pick a color off the website that you like and pass it into the function
+
+------------------- up to this point, ~23 min excluding questions that come up
+
+Now go into loops? Loop w/ a timeout so it just changes colors? Show them how to target something on the screen? Let them change text or something?
+
+
+repeatUntilGoal(function () {
+  turn("right");
+  for (var count = 0; count < 3; count++) {
+      moveForward();
+  }
+  turn("left");
+  for (var count2 = 0; count2 < 3; count2++) {
+      moveForward();
+  }
+});
+
+
+repeatUntilGoal(function () {
+  moveForward();
+  ifPath('right', function () {
+    turn("right");
+  });
+});
+
+
+repeatUntilGoal(function () {
+  moveForward();
+  ifStandingOn('blueCoralBlock', function () {
+    turn("right");
+  });
+  ifStandingOn('planksOak', function () {
+    turn("left");
+  });
+  ifStandingOn('redCoralBlock', function () {
+    turn("left");
+  });
+});
+
+repeatUntilGoal(function () {
+  moveForward();
+  ifStandingOn('seaLantern', function () {
+    turn("right");
+    ifStandingOn('blueCoralBlock', function () {
+      turn("left");
+    });
+    ifStandingOn('redCoralBlock', function () {
+      turn("right");
+    });
+  });
+});
+
+repeatUntilConduit(function () {
+  for (var count = 0; count < 4; count++) {
+      placePrismarine();
+    moveForward();
+  }
+  turn("right");
+});
+
+<div class="hidden">
+      <p>
+        There are a few instructions in JavaScript grouped together in a
+        "function" called <code>changeColor</code>. Every time the button is
+        clicked, the browser "runs" those instructions to change the color.
+      </p>
+      <p>
+        We are able to run the <code>changeColor</code> function ourselves, and change the button color without clicking the button.
+        <ol>
+          <li>Open the Developer Tools for Chrome (hit F12 or right-click and choose inspect)</li>
+          <li>Click on the <code>Console</code> tab</li>
+          <li>Type <code>changeColor()</code> and hit enter</li>
+          <li>Run the <code>changeColor</code> function as many times as you like (hint, hit the up-arrow to bring back the last command you ran and hit enter again to run it)</li>
+        </ol>
+      </p>
+      <p>
+        If our JavaScript instructions need a list of things, like a list of colors, we can use an <code>array</code> to tell JavaScript what is in our list.  
+        The way we do that is to put all our values in between square brackets <code>[</code> and <code>]</code>. 
+      </p>
+      <p>
+        In the <code>Console</code> tab of your Developer Tools, type 
+        <code>colors</code> and hit enter. You should see an <code>array</code> with 6 colors in it.
+      </p>
+      <p>JavaScript functions can also take values in the parenthases, for the function to use when it runs instructions... </p>
+    </div>

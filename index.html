@@ -1,65 +1,105 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@0,400;0,700;1,400&display=swap"
-      rel="stylesheet" />
-    <link rel="stylesheet" href="./styles.css" />
-    <title>Girls in IT - Intro to JavaScript</title>
-  </head>
-  <body>
-    <h1>Learn JavaScript</h1>
-    <div class="card">
-      <div class="hidden" id="intro">
-        <h2>Introduction</h2>
-        <p>
-          JavaScript is a programming language used in web browsers, like Chrome
-          and Firefox. It's a way to provide the browser with some instructions
-          to follow - like changing the color of a button every time we click
-          it. Almost every website uses at least a little bit of JavaScript, and
-          all of the "blocks" you used in yesterday's exercises used JavaScript.
-        </p>
-        <p>Try clicking the button, and see what happens.</p>
-        <!-- <pre>
-      <code>
-        &lt;script&gt;
-          let name = 'world';
-          console.log(`hello ${name}`)
-        &lt;/script&gt;
-      </code>
-    </pre> -->
-        <button id="colors">click me!</button>
-        <p>
-          Now right-click on the button and choose "inspect" - and notice how we
-          can see the HTML code for our button now. Try clicking the button
-          again. Pay attention to how the background-color style in the HTML
-          changes - that's JavaScript doing that!
-        </p>
-        <p>
-          Let's learn a little about how JavaScript works to change our button
-          color.
-        </p>
-      </div>
-      <div class="hidden" id="vars">
-        <h2>Variables & Equations</h2>
-        <p>
-          We don't need any special tools to try writing JavaScript code because
-          it runs right in our browser! To make it a little easier to see what
-          we are doing, we will use an online tool called JSFiddle to learn some
-          of our basics.
-          <a href="http://jsfiddle.net" target="_blank">Go to JSFiddle</a>
-        </p>
-      </div>
-      <button class="hidden" id="prev">Go Back</button>
-      <button id="continue">Continue</button>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@0,400;0,700;1,400&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="./styles.css" />
+  <title>Girls in IT - Intro to JavaScript</title>
+</head>
+
+<body>
+  <h1>Learn JavaScript</h1>
+  <div class="card">
+    <div class="hidden" id="intro">
+      <h2>Introduction</h2>
+      <p>
+        JavaScript is a programming language used in web browsers, like Chrome
+        and Firefox. It's a way to provide the browser with some instructions
+        to follow - like changing the color of a button every time we click
+        it. Almost every website uses at least a little bit of JavaScript, and
+        all of the "blocks" you used in yesterday's exercises used JavaScript.
+      </p>
+      <p>Try clicking the button, and see what happens.</p>
+      <button id="colors">click me!</button>
+      <p>
+        Now right-click on the button and choose "inspect" - and notice how we
+        can see the HTML code for our button now. Try clicking the button
+        again. Pay attention to how the background-color style in the HTML
+        changes - that's JavaScript doing that!
+      </p>
+      <p>
+        Let's learn a little bit about how JavaScript works so we can write
+        our own code.
+      </p>
     </div>
-  </body>
-  <script src="./helpers.js"></script>
-  <script src="./main.js"></script>
+    <div class="hidden" id="vars">
+      <h2>Variables & Equations</h2>
+      <p>
+        We don't need any special tools to try writing JavaScript code because
+        it runs right in our browser! Look for the "Console" tab in your
+        Developer Tools. If you accidentally closed the Dev Tools, hit <code>F12</code> or
+        right-click anywhere on the web page and choose "Inspect" again.
+      </p>
+      <p>
+        We can type our JavaScript in this console, and any time we hit the
+        <code>enter</code> key the browser will run it for us! Try typing a
+        math equation, like <code>3 + 5</code> and hitting enter to see the
+        answer.
+      </p>
+      <p>
+        We can also store the answer to our equation in a <code>variable</code> so we can use it again
+        later. To do that, we just add <code>let</code> at the beginning and give
+        JavaScript a name for where we want to store the answer to our math
+        equation:
+      <pre>
+          let answer = 3 + 5;
+        </pre>
+
+      You may notice that you don't see the answer when you hit enter this time - that's because JavaScript put the
+      answer inside our <code>variable</code> - to see the answer we just need to type "answer" and hit
+      <code>enter</code>!
+      </p>
+      <p>We can store other kinds of values in <code>variables</code>, not just numbers. This time let's try storing
+        some text.
+        Any time we want to use text, called
+        <code>strings</code> in JavaScript, we need to use either single <code>'</code> or double <code>"</code> quotes
+        around the text, so javascript knows how
+        to read it. Create a variable called "greeting", set it equal to some text, and use <code>alert</code> to pop up
+        your new greeting:
+
+      <pre>
+          let greeting = "hello world!";
+
+          alert(greeting);
+        </pre>
+      When we want to combine some text with a variable, there's a special kind of quote called a back-tick
+      <code>`</code> we can use. Let's create a new variable called <code>name</code>, and use that inside of a larger
+      <code>string</code>:
+      <pre>
+        let name = "jamie";
+        let hello = `hi, ${name}`;
+
+        alert(hello);
+      </pre>
+      </p>
+      <p>
+        To make it a little easier to see what we are doing, we will use an
+        online tool called JSFiddle to learn some of our basics.
+        <a href="http://jsfiddle.net" target="_blank">Go to JSFiddle</a>
+      </p>
+    </div>
+    <button class="hidden" id="prev">Go Back</button>
+    <button id="continue">Continue</button>
+  </div>
+</body>
+<script src="./helpers.js"></script>
+<script src="./main.js"></script>
+
 </html>
 
 <!-- https://www.w3schools.com/colors/colors_names.asp -->
