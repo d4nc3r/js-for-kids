@@ -1,8 +1,9 @@
 const sections = [
   { name: "intro", prev: null, next: "vars" },
-  { name: "vars", prev: "intro", next: "array" },
-  { name: "array", prev: "vars", next: "objects" },
-  { name: "objects", prev: "array", next: "loops" },
+  { name: "vars", prev: "intro", next: "log-alert" },
+  { name: "log-alert", prev: "vars", next: "array" },
+  { name: "array", prev: "log-alert", next: "objects" },
+  { name: "objects", prev: "array", next: null },
   { name: "loops", prev: "objects", next: null },
 ];
 
