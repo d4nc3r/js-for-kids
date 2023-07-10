@@ -1,65 +1,287 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@0,400;0,700;1,400&display=swap"
-      rel="stylesheet" />
-    <link rel="stylesheet" href="./styles.css" />
-    <title>Girls in IT - Intro to JavaScript</title>
-  </head>
-  <body>
-    <h1>Learn JavaScript</h1>
-    <div class="card">
-      <div class="hidden" id="intro">
-        <h2>Introduction</h2>
-        <p>
-          JavaScript is a programming language used in web browsers, like Chrome
-          and Firefox. It's a way to provide the browser with some instructions
-          to follow - like changing the color of a button every time we click
-          it. Almost every website uses at least a little bit of JavaScript, and
-          all of the "blocks" you used in yesterday's exercises used JavaScript.
-        </p>
-        <p>Try clicking the button, and see what happens.</p>
-        <!-- <pre>
-      <code>
-        &lt;script&gt;
-          let name = 'world';
-          console.log(`hello ${name}`)
-        &lt;/script&gt;
-      </code>
-    </pre> -->
-        <button id="colors">click me!</button>
-        <p>
-          Now right-click on the button and choose "inspect" - and notice how we
-          can see the HTML code for our button now. Try clicking the button
-          again. Pay attention to how the background-color style in the HTML
-          changes - that's JavaScript doing that!
-        </p>
-        <p>
-          Let's learn a little about how JavaScript works to change our button
-          color.
-        </p>
-      </div>
-      <div class="hidden" id="vars">
-        <h2>Variables & Equations</h2>
-        <p>
-          We don't need any special tools to try writing JavaScript code because
-          it runs right in our browser! To make it a little easier to see what
-          we are doing, we will use an online tool called JSFiddle to learn some
-          of our basics.
-          <a href="http://jsfiddle.net" target="_blank">Go to JSFiddle</a>
-        </p>
-      </div>
-      <button class="hidden" id="prev">Go Back</button>
-      <button id="continue">Continue</button>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@0,400;0,700;1,400&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="./styles.css" />
+  <title>Girls in IT - Intro to JavaScript</title>
+</head>
+
+<body>
+  <h1>Beginner JavaScript</h1>
+  <div class="card">
+    <div class="hidden" id="intro">
+      <h2>Introduction</h2>
+      <p>
+        JavaScript is a programming language used in web browsers, like Chrome
+        and Firefox. It's a way to provide the browser with some instructions
+        to follow - like changing the color of a button every time we click
+        it. Almost every website uses at least a little bit of JavaScript, and
+        all of the "blocks" you used in yesterday's exercises used JavaScript.
+      </p>
+      <p>Try clicking the button, and see what happens.</p>
+      <button id="colors">click me!</button>
+      <p>
+        Now right-click on the button and choose "inspect" - and notice how we
+        can see the HTML code for our button now. Try clicking the button
+        again. Pay attention to how the background-color style in the HTML
+        changes - that's JavaScript doing that! Let's learn a little bit about how JavaScript works so we can write
+        our own code.
+      </p>
+      <p>
+        We don't need any special tools to try writing JavaScript code because
+        it runs right in our browser! Look for the "Console" tab in your
+        Developer Tools. If you accidentally closed the Dev Tools, hit <code>F12</code> or
+        right-click anywhere on the web page and choose "Inspect" again.
+      </p>
+      <p>
+        We can type our JavaScript in this console, and any time we hit the
+        <code>enter</code> key the browser will run it for us! Try typing a
+        math equation, like <code>3 + 5</code> and hitting enter to see the
+        answer.
+      </p>
+      <p>
+        We can write equations with text (called <code>strings</code> in JavaScript) too. Any time we want to use text,
+        called <code>strings</code> in JavaScript, we need to use either single <code>'</code> or double <code>"</code>
+        quotes around the text, so javascript knows how to read it. Try typing a <code>string</code> of text into the
+        console, and hit enter. If you forget to put the quotes around your string, JavaScript with display an error -
+        try that out so you can see what it looks like.
+      </p>
+      <p>
+        We can even add strings together - try typing <code>'hello' + ' ' + 'world!'</code> in the console and hit
+        enter.
+      </p>
     </div>
-  </body>
-  <script src="./helpers.js"></script>
-  <script src="./main.js"></script>
+    <div class="hidden" id="vars">
+      <h2>Variables & Equations</h2>
+      <p>
+        We can also store the answer to an equation in a <code>variable</code> so we can use it again
+        later. To do that, we just add <code>let</code> at the beginning, give
+        JavaScript a name for our variable, and set it equal to our equestion using an <code>=</code> sign:
+      <pre>let answer = 3 + 5;</pre>
+
+      You may notice that you don't see the answer when you hit enter this time - that's because JavaScript put the
+      answer inside our <code>variable</code> - to see the result we just need to type our variable name "answer", and
+      hit
+      <code>enter</code>!
+      </p>
+      <p>We can store other kinds of values in <code>variables</code>, not just numbers. This time let's try storing
+        some text.
+        Create a variable called "greeting", set it equal to some text:
+
+      <pre>let greeting = "hello world!";</pre>
+
+      Now let's say we want to combine some text with a variable, maybe we want to store a person's name and then use
+      their name in our greeting. There's a special kind of quote called a <code>backtick</code> we can use to do that.
+      When we put backticks <code>`</code> around our text, we can include our variables inside by using
+      <code>$</code> and putting our variable inside of some curly braces. Let's create a new variable called
+      <code>name</code>, and use that inside of a larger <code>string</code> called <code>hello</code>:
+      <pre>let name = "jamie";
+let hello = `hi, ${name}`;</pre>
+
+      Now when we type "hello" and hit enter - you should see "hi" and the value in your "name" variable!
+      </p>
+
+    </div>
+    <div class="hidden" id="log-alert">
+      <h2>Console.log and Alert</h2>
+      <p>
+        JavaScript has lots of built-in functionality. Right now, we're just going to look at a couple that are really
+        helpful for learning. First, let's try using <code>alert</code> to pop up a little message for us:
+      <pre>alert("hello!");</pre>
+      Whatever you put between the parenthases <code>(</code> and <code>)</code> will be displayed in the pop up! You
+      can even put a variable in between the parenthases, rather than putting your literal string or number. For
+      example, remember we had our <code>greeting</code> variable from earlier? We can use that inside of the alert:
+      <pre>alert(greeting);</pre>
+      </p>
+      <p>
+        Sometimes we want to print or <code>log</code> some information or a variable without popping up a new windows.
+        In these cases, we can use <code>console.log()</code>. Just like with <code>alert</code>, the value in between
+        the parenthases is what will be logged - but this time instead of in the little pop up window, our value will be
+        printed out to the console screen. For example:
+      <pre>console.log(greeting);</pre>
+      This is especially helpful when we want to see what our variable values are while our code is running.
+      </p>
+    </div>
+    <div class="hidden" id="array">
+      <h2>Arrays</h2>
+      <p>
+        Now that we know how to create variables and how to log to the console, let's try something a little harder.
+        Sometimes we need a list of values, and in JavaScript we call that an <code>array</code>. We can create an array
+        by putting square brackets, <code>[</code> and <code>]</code>, around all the values we want in our list, and
+        commas in between the values.
+      </p>
+      <p>
+        For example, let's create an array of animals (you can pick your favorites):
+      <pre>let animals = ["dog", "cat", "capybara"];</pre>
+
+      Now if we type our variable name "animals" in the console and hit enter - we see our list of values. Try clicking
+      the little arrow on the left-hand side, it will open up our <code>array</code> and show each value on its own
+      line, as well as how many items are in the list.
+      </p>
+      <p>
+        JavaScript numbers every value in our array with an <code>index</code> so that we can get individual values from
+        it. To get a single value out of our array, we type our variable name again, but this time we add square
+        brackets with the index of the value we want in between them. If you look back at the array in your console
+        (opened up so each item is on its own line), you should see numbers to the left of each value - those are the
+        indexes!
+      </p>
+      <p>
+        Let's try getting the value of our first animal out of our array:
+      <pre>animals[0];</pre>
+
+      It may look strange to use <code>0</code> instead of <code>1</code> to get the first item in our
+      list, but JavaScript always starts counting at zero, so our first item is index zero.
+      </p>
+      <p>
+        Try practicing by asking JavaScript to display the 3rd item in your list. <a>(hint)</a>
+      <pre>animals[2];</pre>
+      </p>
+      <p>
+        If you need to know how many items are in an array, you can ask JavaScript the <code>length</code>, like this:
+      <pre>animals.length;</pre>
+      </p>
+      <p>
+        Adding new values into our array is easy, we can use <code>push</code> to "push" a new value onto the end of our
+        animals array:
+      <pre>animals.push("giraffe");</pre>
+      </p>
+      <p>
+        Let's say we want to remove the last item in our array - we can <code>pop</code> that value right off the end
+        and store it in a variable, like this:
+      <pre>let last = animals.pop();</pre>
+      Check the value of <code>animals</code> again, and now it has only 3 items again - <code>giraffe</code> is gone,
+      but you can now find it in the variable called <code>last</code>.
+      </p>
+      <p>
+        We can also change a value in our array if we need to. Let's use what we know already to change the value of
+        "cat" to be "kitten". (hint)
+      <pre>animals[1] = "kitten";</pre>
+      Now if you display <code>animals</code> one more time - you should no longer see cat, instead you'll see kitten :)
+      </p>
+    </div>
+    <div class="hidden" id="objects">
+      <h2>Objects</h2>
+      <p>
+        When we want to group some information together, we can use an <code>object</code> in JavaScript. For example,
+        we may want a person to have a <code>name</code>, an <code>age</code>, and a <code>favoriteColor</code>:
+      <pre>
+let person = {
+  name: "Moana",
+  age: "16",
+  favoriteColor: "ocean blue"
+}</pre>
+      Try copying and pasting the code into your Dev Tools console, hit enter, and type "person" to ask JavaScript to
+      display our person object.
+      </p>
+      <p>
+        It looks a little bit like our array doesn't it, except with curly brackets instead of square ones. Try clicking
+        the arrow on the left-hand side to open up the object. Just like with our array, it shows us each value on a
+        separate line, but this time instead of an <code>index</code> we see our <code>key</code> on the left of our
+        values.
+      </p>
+      <p>
+        If we can get a single value out of our array by saying <code>arrayName[index]</code>, try to guess how you
+        could get a single value from our object. (show answer)
+      </p>
+      <div class="answer">
+        <p>
+          That's right! We can use the <code>key</code> next to the value you want inside square brackets to get a
+          single
+          value:
+        <pre>person["favoriteColor"];</pre>
+        There's also a special way to get values from an object called <code>dot notation</code>, a fancy way of saying
+        add a <code>dot</code> and then the <code>key</code> for the value you want:
+        <pre>person.name;</pre>
+        </p>
+        <p>
+          Now try writing our greeting from earlier, but use our person's name inside it. Remember, when we want to use
+          a
+          variable inside of our text, use the special backticks <code>`</code> instead of quotes, and put
+          <code>${}</code> around the variable we want to use.
+        </p>
+        <p class="answer">
+          It might be tempting to put <code>person</code> inside the curly brackets, but we just want to say "hi" to our
+          person's name - so we can either use square brackets like this:
+        <pre>let greeting = `hi, ${person["name"]}`;</pre>
+        or we can use <code>dot notation</code> instead, like this:
+        <pre>let greeting = `hi, ${person.name}`;</pre>
+        </p>
+        <p>
+          Just to see what would happen, try using our <code>person</code> object inside our string of text, and then
+          ask
+          JavaScript for the value:
+        <pre>let greeting = `hi, ${person}`;</pre>
+        That looks super weird, doesn't it? That's because an object isn't just one string
+        value, like <code>person.name</code> or <code>person.age</code> is, it's a group of values, so when JavaScript
+        tries to put the whole thing into a string, it will just show us that it's an object by printing
+        <code>[object Object]</code>.
+        </p>
+      </div>
+
+    </div>
+    <div class="hidden" id="loops">
+      <h2>Loops</h2>
+      <p>
+        Sometimes we want to loop through some data or repeat our instructions more than once. We will go
+        over a couple of ways to loop in JavaScript, and to make it a little easier to see what we are doing we'll
+        use an online tool called JSFiddle to learn some more of our basics.
+        <a href="http://jsfiddle.net" target="_blank">Go to JSFiddle</a>
+      </p>
+      <h3>For Loop</h3>
+      <p>
+        We use a <code>for</code> loop any time we want to repeat instructions a certain number of times. First we set
+        up how many times we'd like to repeat our code:
+      <pre>
+for(let count = 0; count < 5; count++) {
+
+}</pre>
+      This will create a variable called "count" just for our for loop and set it equal to zero to start. JavaScript
+      will
+      continue to loop as long as <code>count</code> is less than 5, and it will add 1 to <code>count</code> every time
+      the code runs (that is what <code>count++</code> does).
+      </p>
+      <p>
+        Second, we need to add some code in between the curly brackets - whatever we put there will run over and over,
+        until <code>count</code> is no longer less than 5. For example, this will print out the value of
+        <code>count</code> each time the loop runs.
+      <pre>
+for(let count = 0; count < 5; count++) {
+  console.log(count);
+}</pre>
+      We could also use a for loop to print out all of our values in an array. Let's try creating a new array, with
+      whatever values you'd like in it, for example:
+      <pre>
+let foods = ["pizza", "cheeseburgers", "skittles"];</pre>
+      Now we'll create a for loop that will start with zero, and loop as long as the index is less than the length of
+      the array:
+      <pre>
+for(let index = 0; index < foods.length; index++) {
+  console.log(foods[index]);
+}</pre>
+      </p>
+      <h3>ForEach Loop</h3>
+      <p>
+        When we want to loop through all the values in an array, there's an easier way to do that than the for loop!
+        Arrays have a special function called <code>forEach</code> that lets us loop through each value once:
+      <pre>
+foods.forEach(food => {
+  console.log(food);
+})</pre>
+      </p>
+    </div>
+    <button class="hidden" id="prev">Go Back</button>
+    <button id="continue">Continue</button>
+  </div>
+</body>
+<script src="./helpers.js"></script>
+<script src="./main.js"></script>
+
 </html>
 
 <!-- https://www.w3schools.com/colors/colors_names.asp -->

@@ -1,6 +1,10 @@
 const sections = [
   { name: "intro", prev: null, next: "vars" },
-  { name: "vars", prev: "intro", next: null },
+  { name: "vars", prev: "intro", next: "log-alert" },
+  { name: "log-alert", prev: "vars", next: "array" },
+  { name: "array", prev: "log-alert", next: "objects" },
+  { name: "objects", prev: "array", next: null },
+  { name: "loops", prev: "objects", next: null },
 ];
 
 const button = document.querySelector("button#colors");
