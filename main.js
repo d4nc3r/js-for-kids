@@ -3,7 +3,8 @@ const sections = [
   { name: "vars", prev: "intro", next: "log-alert" },
   { name: "log-alert", prev: "vars", next: "array" },
   { name: "array", prev: "log-alert", next: "objects" },
-  { name: "objects", prev: "array", next: null },
+  { name: "objects", prev: "array", next: "object-array" },
+  { name: "object-array", prev: "objects", next: null },
   { name: "loops", prev: "objects", next: null },
 ];
 

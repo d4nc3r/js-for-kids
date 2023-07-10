@@ -14,6 +14,14 @@
 
 <body>
   <h1>Beginner JavaScript</h1>
+  <nav>
+    <a href="javascript:void(0);" onclick="updateSection('intro')">intro</a> |
+    <a href="javascript:void();" onclick="updateSection('vars')">variables</a> |
+    <a href="javascript:void();" onclick="updateSection('log-alert')">logging</a> |
+    <a href="javascript:void();" onclick="updateSection('array')">arrays</a> |
+    <a href="javascript:void();" onclick="updateSection('objects')">objects</a> |
+    <a href="javascript:void();" onclick="updateSection('object-array')">obj + array</a>
+  </nav>
   <div class="card">
     <div class="hidden" id="intro">
       <h2>Introduction</h2>
@@ -46,8 +54,8 @@
         answer.
       </p>
       <p>
-        We can write equations with text (called <code>strings</code> in JavaScript) too. Any time we want to use text,
-        called <code>strings</code> in JavaScript, we need to use either single <code>'</code> or double <code>"</code>
+        We can write equations with text (called <code>strings</code> in JavaScript) too. Any time we want to use a
+        <code>string</code>, we need to use either single <code>'</code> or double <code>"</code>
         quotes around the text, so javascript knows how to read it. Try typing a <code>string</code> of text into the
         console, and hit enter. If you forget to put the quotes around your string, JavaScript with display an error -
         try that out so you can see what it looks like.
@@ -224,6 +232,32 @@ let person = {
         </p>
       </div>
 
+    </div>
+    <div class="hidden" id="object-array">
+      <h2>Objects in Arrays</h2>
+      <p>
+        Now that we have learned about <code>arrays</code> and <code>objects</code> - let's combine them! We don't need
+        to restrict our array
+        values to being just strings or numbers, we can put objects in our arrays too.
+      </p>
+      <p>
+        Let's say we have a pet - a pet <code>object</code> could look like this:
+      <pre>let pet = {
+  name: "Fido",
+  age: 2,
+  type: "dog"
+};</pre>
+      </p>
+      <p>
+        Now what if we had a lot of pets? We could create an array - it could look like this:
+      <pre>let pets = [
+  { name: "Fido", age: 2, type: "dog"},
+  { name: "Snowball", age: 5, type: "cat"},
+  { name: "Spot", age: 7, type: "dog"},
+  { name: "Goldie", age: 1, type: "fish"}
+];</pre>
+      Each item in our array is a pet object.
+      </p>
     </div>
     <div class="hidden" id="loops">
       <h2>Loops</h2>
