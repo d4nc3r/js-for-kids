@@ -56,9 +56,7 @@
         later. To do that, we just add <code>let</code> at the beginning and give
         JavaScript a name for where we want to store the answer to our math
         equation:
-      <pre>
-          let answer = 3 + 5;
-        </pre>
+      <pre>let answer = 3 + 5;</pre>
 
       You may notice that you don't see the answer when you hit enter this time - that's because JavaScript put the
       answer inside our <code>variable</code> - to see the answer we just need to type "answer" and hit
@@ -69,27 +67,68 @@
         Any time we want to use text, called
         <code>strings</code> in JavaScript, we need to use either single <code>'</code> or double <code>"</code> quotes
         around the text, so javascript knows how
-        to read it. Create a variable called "greeting", set it equal to some text, and use <code>alert</code> to pop up
+        to read it. Create a variable called "greeting", set it equal to some text, and then use the <code>alert</code>
+        function to pop up
         your new greeting:
 
-      <pre>
-          let greeting = "hello world!";
+      <pre>let greeting = "hello world!";
 
-          alert(greeting);
-        </pre>
-      When we want to combine some text with a variable, there's a special kind of quote called a back-tick
-      <code>`</code> we can use. Let's create a new variable called <code>name</code>, and use that inside of a larger
-      <code>string</code>:
-      <pre>
-        let name = "jamie";
-        let hello = `hi, ${name}`;
+alert(greeting);</pre>
 
-        alert(hello);
-      </pre>
+      Now let's say we want to combine some text with a variable, maybe we want to store a person's name and then use
+      their name in our greeting. There's a special kind of quote called a <code>backtick</code> we can use to do that.
+      When we put backticks <code>`</code> around our text, we can include our variables inside as well by using
+      <code>$</code> and putting our variable inside of some curly braces. Let's create a new variable called
+      <code>name</code>, and use that inside of a larger <code>string</code> called <code>hello</code>:
+      <pre>
+let name = "jamie";
+let hello = `hi, ${name}`;
+
+alert(hello);</pre>
+
+      Now when we type "hello" and hit enter - you should see "hi" and the value in your "name" variable!
+      </p>
+
+    </div>
+    <div class="hidden" id="array">
+      <h2>Arrays</h2>
+      <p>
+        Now that we know how to create a string variable, let's try something a little harder. Sometimes in JavaScript
+        we need a list of values, and we call that an <code>array</code>. In JavaScript we can create an array by
+        putting square brackets, <code>[</code> and <code>]</code>, around all the values we want in our list, and
+        commas in between the values.
       </p>
       <p>
+        For example, let's create an array of your favorite animals:
+      <pre>
+let animals = ["dog", "cat", "capybara"];</pre>
+      Now if we type our variable name "animals" in the console and hit enter - we see our list of values. Try clicking
+      the little arrow on the left-hand side, it will open up our <code>array</code> and show each value on its own
+      line, as well as how many items are in the list. You will also see that there is a number in front of each of our
+      values now, that number is called the <code>index</code>. JavaScript assigns every value in our array an index so
+      that we can get individual values back out again.
+      </p>
+      <p>
+        To get a single value out of our array, we type our variable name again, but this time we add square brackets
+        with the index of the value we want in between them.
+      </p>
+      <p>
+        Let's try getting the first animal out of our array:
+      <pre>
+animals[0];
+</pre>
+      It may look strange to use <code>0</code> instead of <code>1</code> to get the first item in our
+      list, but JavaScript always starts counting at zero, so our first item is index zero - try displaying your array again and take a close look at
+      what index number is next to each value in the list.
+      </p>
+      <p>
+        Try practicing by asking JavaScript to display the 3rd item in your list.
+      </p>
+    </div>
+    <div class="hidden" id="loops">
+      <p>
         To make it a little easier to see what we are doing, we will use an
-        online tool called JSFiddle to learn some of our basics.
+        online tool called JSFiddle to learn some more of our basics.
         <a href="http://jsfiddle.net" target="_blank">Go to JSFiddle</a>
       </p>
     </div>
