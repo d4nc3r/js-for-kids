@@ -213,23 +213,23 @@ let person = {
           variable inside of our text, use the special backticks <code>`</code> instead of quotes, and put
           <code>${}</code> around the variable we want to use.
         </p>
-        <p class="answer">
-          It might be tempting to put <code>person</code> inside the curly brackets, but we just want to say "hi" to our
-          person's name - so we can either use square brackets like this:
-        <pre>let greeting = `hi, ${person["name"]}`;</pre>
-        or we can use <code>dot notation</code> instead, like this:
-        <pre>let greeting = `hi, ${person.name}`;</pre>
-        </p>
         <p>
-          Just to see what would happen, try using our <code>person</code> object inside our string of text, and then
-          ask
-          JavaScript for the value:
-        <pre>let greeting = `hi, ${person}`;</pre>
+          It might be tempting to put <code>person</code> inside the curly brackets - just to see what would happen, try
+          using our <code>person</code> object inside our string of text, we can try it out using `console.log`:
+        <pre>console.log(`hi, ${person}`};</pre>
         That looks super weird, doesn't it? That's because an object isn't just one string
         value, like <code>person.name</code> or <code>person.age</code> is, it's a group of values, so when JavaScript
         tries to put the whole thing into a string, it will just show us that it's an object by printing
         <code>[object Object]</code>.
         </p>
+        <p class="answer">
+          , but we just want to say "hi" to our
+          person's name - so we can either use square brackets like this:
+        <pre>let greeting = `hi, ${person["name"]}`;</pre>
+        or we can use <code>dot notation</code> instead, like this:
+        <pre>let greeting = `hi, ${person.name}`;</pre>
+        </p>
+
       </div>
 
     </div>
@@ -256,8 +256,14 @@ let person = {
   { name: "Spot", age: 7, type: "dog"},
   { name: "Goldie", age: 1, type: "fish"}
 ];</pre>
-      Each item in our array is a pet object.
+      Each item in our array is a pet object!
       </p>
+      <ul>
+        <li>count the number of dogs (use loop and counter, then show filter adn length)</li>
+        <li>write a function that takes the type of pet and counts how many in the array</li>
+        <li>loop thru pets and say "hi" to each one by name</li>
+        <li></li>
+      </ul>
     </div>
     <div class="hidden" id="loops">
       <h2>Loops</h2>
