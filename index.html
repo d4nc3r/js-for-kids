@@ -14,6 +14,17 @@
 
 <body>
   <h1>Beginner JavaScript</h1>
+  <nav>
+    <a href="javascript:void(0);" onclick="updateSection('intro')">intro</a> |
+    <a href="javascript:void(0);" onclick="updateSection('vars')">variables</a> |
+    <a href="javascript:void(0);" onclick="updateSection('log-alert')">logging</a> |
+    <a href="javascript:void(0);" onclick="updateSection('array')">arrays</a> |
+    <a href="javascript:void(0);" onclick="updateSection('objects')">objects</a> |
+    <a href="javascript:void(0);" onclick="updateSection('ifelse')">if/else</a> |
+    <a href="javascript:void(0);" onclick="updateSection('loops')">loops</a> |
+    <a href="javascript:void(0);" onclick="updateSection('functions')">functions</a> |
+    <a href="javascript:void(0);" onclick="updateSection('all-together')">all together now</a>
+  </nav>
   <div class="card">
     <div class="hidden" id="intro">
       <h2>Introduction</h2>
@@ -46,8 +57,8 @@
         answer.
       </p>
       <p>
-        We can write equations with text (called <code>strings</code> in JavaScript) too. Any time we want to use text,
-        called <code>strings</code> in JavaScript, we need to use either single <code>'</code> or double <code>"</code>
+        We can write equations with text (called <code>strings</code> in JavaScript) too. Any time we want to use a
+        <code>string</code>, we need to use either single <code>'</code> or double <code>"</code>
         quotes around the text, so javascript knows how to read it. Try typing a <code>string</code> of text into the
         console, and hit enter. If you forget to put the quotes around your string, JavaScript with display an error -
         try that out so you can see what it looks like.
@@ -91,7 +102,8 @@ let hello = `hi, ${name}`;</pre>
     <div class="hidden" id="log-alert">
       <h2>Console.log and Alert</h2>
       <p>
-        JavaScript has lots of built-in functionality. Right now, we're just going to look at a couple that are really
+        JavaScript has lots of built-in functionality. Right now, we're just going to look at a couple of functions that
+        are really
         helpful for learning. First, let's try using <code>alert</code> to pop up a little message for us:
       <pre>alert("hello!");</pre>
       Whatever you put between the parenthases <code>(</code> and <code>)</code> will be displayed in the pop up! You
@@ -124,6 +136,7 @@ let hello = `hi, ${name}`;</pre>
       the little arrow on the left-hand side, it will open up our <code>array</code> and show each value on its own
       line, as well as how many items are in the list.
       </p>
+      <h3>Indexes</h3>
       <p>
         JavaScript numbers every value in our array with an <code>index</code> so that we can get individual values from
         it. To get a single value out of our array, we type our variable name again, but this time we add square
@@ -139,20 +152,24 @@ let hello = `hi, ${name}`;</pre>
       list, but JavaScript always starts counting at zero, so our first item is index zero.
       </p>
       <p>
-        Try practicing by asking JavaScript to display the 3rd item in your list. <a>(hint)</a>
-      <pre>animals[2];</pre>
+        Try practicing by asking JavaScript to display the 2nd or 3rd item in your list.
+        <!-- <pre>animals[2];</pre> -->
       </p>
+      <h3>Length</h3>
       <p>
         If you need to know how many items are in an array, you can ask JavaScript the <code>length</code>, like this:
       <pre>animals.length;</pre>
       </p>
+      <h3>Updating</h3>
       <p>
         Adding new values into our array is easy, we can use <code>push</code> to "push" a new value onto the end of our
         animals array:
       <pre>animals.push("giraffe");</pre>
+      Check the console again to see what your array looks like now!
       </p>
       <p>
-        Let's say we want to remove the last item in our array - we can <code>pop</code> that value right off the end
+        Now let's say we want to remove the last item in our array - we can <code>pop</code> that value right off the
+        end
         and store it in a variable, like this:
       <pre>let last = animals.pop();</pre>
       Check the value of <code>animals</code> again, and now it has only 3 items again - <code>giraffe</code> is gone,
@@ -160,16 +177,18 @@ let hello = `hi, ${name}`;</pre>
       </p>
       <p>
         We can also change a value in our array if we need to. Let's use what we know already to change the value of
-        "cat" to be "kitten". (hint)
-      <pre>animals[1] = "kitten";</pre>
-      Now if you display <code>animals</code> one more time - you should no longer see cat, instead you'll see kitten :)
+        "cat" to be "kitten".
+        <!-- <pre>animals[1] = "kitten";</pre> -->
+        After you run your code, try testing it by displaying <code>animals</code> one more time - you should no longer
+        see cat, instead you'll see kitten :)
       </p>
     </div>
     <div class="hidden" id="objects">
       <h2>Objects</h2>
       <p>
         When we want to group some information together, we can use an <code>object</code> in JavaScript. For example,
-        we may want a person to have a <code>name</code>, an <code>age</code>, and a <code>favoriteColor</code>:
+        we may want data that represents a person. It might have a <code>name</code>, an <code>age</code>, and a
+        <code>favoriteColor</code>:
       <pre>
 let person = {
   name: "Moana",
@@ -187,11 +206,12 @@ let person = {
       </p>
       <p>
         If we can get a single value out of our array by saying <code>arrayName[index]</code>, try to guess how you
-        could get a single value from our object. (show answer)
+        could get a single value from our object. (<a href="javascript:void(0);" onclick="showAnswer(1)">show
+          answer</a>)
       </p>
-      <div class="answer">
+      <div id="answer-1" class="hidden">
         <p>
-          That's right! We can use the <code>key</code> next to the value you want inside square brackets to get a
+          We can use the <code>key</code> next to the value you want inside square brackets to get a
           single
           value:
         <pre>person["favoriteColor"];</pre>
@@ -205,33 +225,163 @@ let person = {
           variable inside of our text, use the special backticks <code>`</code> instead of quotes, and put
           <code>${}</code> around the variable we want to use.
         </p>
-        <p class="answer">
-          It might be tempting to put <code>person</code> inside the curly brackets, but we just want to say "hi" to our
+        <p>
+          It might be tempting to put <code>person</code> inside the curly brackets - just to see what would happen, try
+          using our <code>person</code> object inside our string of text, we can try it out using `console.log`:
+        <pre>console.log(`hi, ${person}`};</pre>
+        That looks super weird, doesn't it? That's because an object isn't just one
+        value, like <code>person.name</code> or <code>person.age</code> is, it's a group of values, so when JavaScript
+        tries to put the whole thing into a string, it will just show us that it's an object by printing
+        <code>[object Object]</code>.
+        </p>
+        <p>
+          We just want to say "hi" to our
           person's name - so we can either use square brackets like this:
         <pre>let greeting = `hi, ${person["name"]}`;</pre>
         or we can use <code>dot notation</code> instead, like this:
         <pre>let greeting = `hi, ${person.name}`;</pre>
         </p>
-        <p>
-          Just to see what would happen, try using our <code>person</code> object inside our string of text, and then
-          ask
-          JavaScript for the value:
-        <pre>let greeting = `hi, ${person}`;</pre>
-        That looks super weird, doesn't it? That's because an object isn't just one string
-        value, like <code>person.name</code> or <code>person.age</code> is, it's a group of values, so when JavaScript
-        tries to put the whole thing into a string, it will just show us that it's an object by printing
-        <code>[object Object]</code>.
-        </p>
+
       </div>
 
+    </div>
+    <div class="hidden" id="ifelse">
+      <h2>Conditionals - If / Else</h2>
+      <p>
+        When we want the computer to perform a task *sometimes*, under certain conditions, that's called a
+        <code>conditional</code>,
+        or an "if/else" statement.
+      </p>
+      <p>
+        Let's start with an object to represent a pet:
+      <pre>let pet = {
+  name: "Fido",
+  age: 2,
+  type: "dog"
+};</pre>
+
+      Now let's write a <code>conditional</code> statement to pop up an alert message that says "good dog!" if our pet
+      is a dog:
+      <pre>if (pet.type === "dog") {
+  alert("good dog!");
+}</pre>
+      Now what if our pet was actually a cat? Try changing your pet's <code>type</code> to be "cat", and run your
+      <code>if statement</code> again.
+      </p>
+      <p>
+        Nothing happened! Does that mean our code is broken? Nope! Our <code>if statement</code> is checking to see if
+        our pet's <code>type</code> is "dog", and it only pops up our alert if it is. Now that our pet's type is "cat",
+        it no longer satisfies the <code>condition</code> of our statement.
+      </p>
+      <p>
+        If we want to say something <code>else</code> when our pet is not a dog, we can add to our
+        <code>conditional</code>:
+      <pre>if (pet.type === "dog") {
+  alert("good dog!");
+} else {
+  alert("here kitty!");
+}</pre>
+      Now try running your <code>if/else</code> statement when your pet's type is "cat" and again when its type is "dog"
+      and see what happens.
+      </p>
+      <p>
+        Lastly - if you only want to pop an alert message if your pet is a cat or a dog, but do nothing if it's a
+        different type of pet, you can add an <code>else if</code> instead of an <code>else</code>, like this:
+      <pre>if (pet.type === "dog") {
+  alert("good dog!");
+} else if (pet.type === "cat") {
+  alert("here kitty!");
+}</pre>
+      Now if you set your pet's type to "turtle", you won't see an alert pop up at all!
+      </p>
+    </div>
+    <div class="hidden" id="functions">
+      <h2>Functions</h2>
+      <p>
+        Functions are like blocks, they group instructions together so we can run it more than once, sometimes with
+        different values passed in to change the behavior of our function.
+      </p>
+      <p>
+        Some functions just <i>DO</i> something, for example - we can write a function to "sayHi", like this:
+      <pre>function sayHi() {
+  console.log("hello world!");
+}</pre>
+      Now if we type "sayHi" and hit enter, javascript shows us exactly what instructions our function will run. If we
+      want javascript to actually run them, we have to type sayHi() with the parenthases, this tells javascript to
+      actually run our instructions for us, and we can do that as many times as we want.
+      </p>
+      <p>
+        We can write a more useful function by sending some data, called a <code>parameter</code>, into our function to
+        be used by our instructions. Let's re-write our sayHi function, this time passing it a name:
+      <pre>function sayHi(name) {
+  console.log(`hi, ${name}!`);
+}</pre>
+      Now we can <code>call</code> the function with any name we want inside the parenthases, and javascript will print
+      out hi, and
+      the name (try a few).
+      </p>
+      <p>
+        If we forget to put some text inside the parenthases, javascript prints out hi, undefined - and what
+        <code>undefined</code>
+        means it that javascript doesn't know the value of "name", because we forgot to give it a value. Any time you
+        see <code>undefined</code> in the console, it probably means javascript was looking for a variable that doesn't
+        have a value yet.
+      </p>
+      <p>
+        Now let's try a function that <code>returns</code> something. How about a function that takes two numbers,
+        multiplies them, and returns the answer? It's almost like the functions we've written before, but this time we
+        had a <code>return statement</code>.
+      <pre>function times(num1, num2) {
+  return num1 * num2;
+}</pre>
+      Now you can call <code>times</code> with any 2 numbers you like, and it will return the value of the first number
+      times the second number. This also means you can set a new variable equal to the return value of our function if
+      we'd like to store the answer, like this:
+      <pre>let answer = times(7, 15);</pre>
+      This time when we run the code it doesn't display the answer - because it was saved in our <code>answer</code>
+      variable. Try displaying our answer variable in the console - and you should see what 7 times 15 is!
+      </p>
+    </div>
+    <div class="hidden" id="all-together">
+      <h2>Putting it all Together</h2>
+      <p>
+        Now that we have learned a little bit about the lanaguage of JavaScript, let's put it all together!
+      </p>
+      <p>
+        We've seen that we can create a an object to represent a pet, but what if we had a lot of pets? We could create
+        an array - it could look like this:
+      <pre>let pets = [
+  { name: "Fido", age: 2, type: "dog"},
+  { name: "Snowball", age: 5, type: "cat"},
+  { name: "Spot", age: 7, type: "dog"},
+  { name: "Goldie", age: 1, type: "fish"}
+];</pre>
+      Each item in our array is a pet object!
+      </p>
+      <p>
+        Now that our code is getting a little more complex - it will be easier to use an
+        online tool to write our code. Open this <a
+          href="https://developer.mozilla.org/en-US/play?id=198HM2uSFkj6XP4GC46M9BQ7KjHhN%2ByB1c2X8Px5cXpfV96LpeXOV8GpKO37yzihyhlBM0b09GLYOy7T"
+          target="_blank">JavaScript playground</a>, it already has our pets array defined!
+      </p>
+      <p>
+        We're going to use this array to practice everything we've learned so far!
+      </p>
+      <ul>
+        <li>Count the number of dogs in our pets array using a <code>for loop</code></li>
+        <li>Loop thru our pets and say "hi" to each one by name using <code>forEach</code></li>
+        <li>Write a <code>function</code> that takes the type of pet as a parameter and counts how many of that type of
+          pet we have
+        </li>
+        <li>BONUS! Use <code>filter</code> on our pets array to simplify our function</li>
+      </ul>
     </div>
     <div class="hidden" id="loops">
       <h2>Loops</h2>
       <p>
-        Sometimes we want to loop through some data or repeat our instructions more than once. We will go
-        over a couple of ways to loop in JavaScript, and to make it a little easier to see what we are doing we'll
-        use an online tool called JSFiddle to learn some more of our basics.
-        <a href="http://jsfiddle.net" target="_blank">Go to JSFiddle</a>
+        Sometimes we want to loop through some data or repeat our instructions more than once. There's a few different
+        ways to do that in JavaScript, we're going to focus on the <code>for loop</code> and on the <code>forEach</code>
+        function.
       </p>
       <h3>For Loop</h3>
       <p>

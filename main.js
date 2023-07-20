@@ -3,8 +3,11 @@ const sections = [
   { name: "vars", prev: "intro", next: "log-alert" },
   { name: "log-alert", prev: "vars", next: "array" },
   { name: "array", prev: "log-alert", next: "objects" },
-  { name: "objects", prev: "array", next: null },
-  { name: "loops", prev: "objects", next: null },
+  { name: "objects", prev: "array", next: "ifelse" },
+  { name: "ifelse", prev: "objects", next: "loops" },
+  { name: "loops", prev: "ifelse", next: "functions" },
+  { name: "functions", prev: "loops", next: "all-together" },
+  { name: "all-together", prev: "functions", next: null }
 ];
 
 const button = document.querySelector("button#colors");
@@ -62,6 +65,10 @@ function handleBack() {
     (s) => s.name === getCookies().currentSection
   ).prev;
   updateSection(prevSection);
+}
+
+function showAnswer(num) {
+  document.querySelector(`#answer-${num}`).classList.remove("hidden");
 }
 
 button.addEventListener("click", changeColor);
